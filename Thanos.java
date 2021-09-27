@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Thanos {
 
@@ -13,12 +12,29 @@ public class Thanos {
 
         // TODO 1 : Modify Hero to implements Comparable and sort by name (ascending)
 
+        ;
+        Comparator<Hero> comparator0 = new Comparator<Hero>() {
+            @Override
+            public int compare(Hero hero, Hero t1) {
+                return hero.getName().compareTo(t1.getName());
+            }
+        };
 
+
+        Collections.sort(heroes, comparator0);
         System.out.println("\nOrder by name:");
         showList(heroes);
 
         // TODO 2: Add a Comparator and sort by age (descending)
 
+        Comparator<Hero> comparator = new Comparator<Hero>() {
+            @Override
+            public int compare(Hero hero, Hero t1) {
+                return t1.getAge()- hero.getAge() ;
+            }
+        };
+
+        Collections.sort(heroes, comparator);
 
         System.out.println("\nOrder by age:");
         showList(heroes);
